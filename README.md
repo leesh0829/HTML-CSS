@@ -1,2 +1,2 @@
 # HTML
- 2024 lernning HTML in VSCode.
+ 2024 lernning HTML and CSS in VSCode.
