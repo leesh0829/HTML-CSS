@@ -3,37 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>레이아웃 A-1</title>
-    <link href="https://webfontworld.github.io/Rebecca/Rebecca.css" rel="stylesheet">
+    <title>30105이승현</title>
+    <link href="https://webfontworld.github.io/Rebecca/Rebecca.css" rel="stylesheet"> <!-- 외부 폰트 사이트 링크 !-->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: 'Rebecca';
+        * { /* 전체 초기화 및 기본 스타일 설정 */
+            margin: 0;  /*가운데 배치 */
+            padding: 0; /* 여백을 없에기 */
+            font-family: 'Rebecca'; /* 외부 폰트 적용 */
         }
         li {
-            list-style: none;
+            list-style: none; /* 리스트 스타일 왼쪽 동그라미 제거 */
         }
         a {
-            text-decoration: none;
-            color: #000000;
+            text-decoration: none;  /* 밑줄 제거 */
+            color: #000000; /* 글씨 색상 */
         }
         #wrap {
-            width: 1200px;
-            margin: 0 auto;
+            width: 1200px; /* 넓이 */
+            margin: 0 auto; /*가운데 정렬*/
         }
         #header {
-            width: 100%;
-            display: flex;
+            width: 100%; /* wrap에서 width의 100%만사용*/
+            display: flex; /*정렬*/
         }
         #logo {
-            width: 20%;
-            height: 100px;
-            background-color: rgb(49, 1, 43);
+            width: 20%; /*header에서 width 넓이 20%만 사용 */
+            height: 100px; /*높이 100픽셀 사용*/
+            background-color: rgb(49, 1, 43); /*색*/
         }
         .nav {
-            width: 80%;
-            height: 100px;
+            width: 80%; /*네비게이션 넓이*/
+            height: 100px; /*높이*/
             background-color: rgb(99, 0, 86);
         }
         #slider {
@@ -42,12 +42,12 @@
             background-color: rgb(124, 1, 118);
         }
         #contents {
-            width: 100%;
+            width: 100%; 
             display: flex;
         }
-        #contents .content1 {
-            width: 33.3333%;
-            height: 200px;
+        #contents .content1 { /*콘텐츠에서 콘텐츠1 (class라서 .사용)*/
+            width: 33.3333%; /*1/3 넓이 사용 */
+            height: 200px; 
             background-color: rgb(245, 123, 227);
         }
         #contents .content2 {
@@ -82,28 +82,28 @@
 
         /* tab */
 
-        .tab-menu {
-            padding: 20px;
+        .tab-menu { /*탭메뉴*/
+            padding: 20px; /*여백 20픽셀*/
         }
         .tab-menu .tab-btn {}
-        .tab-menu .tab-btn ul {
+        .tab-menu .tab-btn ul { /*버튼들 정렬*/
             display: flex;
         }
         .tab-menu .tab-btn ul li {}
-        .tab-menu .tab-btn ul li .active a {
+        .tab-menu .tab-btn ul li .active a { /* 활성 탭 밑줄 스타일*/
             text-decoration: underline;
         }
         .tab-menu .tab-btn ul li a {
-            display: inline-block;
+            display: inline-block; /*inline과 block의 기능을 합친걸로 줄바꿈없이 한줄에 나란히 배치되고 속성 지정 가능*/
             padding: 10px;
             background-color: #42013b;
         }
-        .tab-menu .tab-cont {
+        .tab-menu .tab-cont { /*아래에 있는 애들*/
             /* display: none; */
 
         }
-        .tab-menu .tab-cont > div {
-            padding: 10px;
+        .tab-menu .tab-cont > div {  /*탭메뉴 백그라운드*/
+            padding: 10px; 
             background-color: #3b1136;
             line-height: 1.6;
         }
@@ -114,18 +114,18 @@
 
         /* nav */
 
-        .nav {}
+        .nav {} /*네비게이션*/
 
         .nav > ul{
             display: flex;
-            justify-content: right;
-            margin-top: 30px;
+            justify-content: right; /*오른쪽 정렬*/
+            margin-top: 30px; /*30픽셀씩 간격*/
         }
         .nav > ul > li{
-            position: relative;
+            position: relative; /* 원래 위치 기준으로 위,아래,왼,오른에서 얼마만큼 떨어질지 결정*/
         }
         .nav > ul > li > a{
-            display: inline-block;
+            display: inline-block; 
             padding: 10px 50px;
             background-color: #5c2455;
         }
@@ -134,13 +134,13 @@
         }
 
         .nav > ul > li > ul{
-            position: absolute;
-            top: 36px;
-            left: 0;
+            position: absolute; /* 가장 가까운 조상 요소를 기준으로 위, 아래, 왼, 오른에서 얼마만큼 떨어질지 결정*/
+            top: 36px; /*위로 36픽셀로 떨어짐*/
+            left: 0; /*왼쪽으로 딱 붙임*/
             background-color: #522d4d;
             width: 100%;
-            text-align: center;
-            display: none;
+            text-align: center; /*글씨는 가운데에 위치*/
+            display: none; /*안보이게*/
         }
         .nav > ul > li > ul > li{}
 
@@ -160,23 +160,23 @@
         }
         .content3 {
             display: flex;
-            align-items: center;
+            align-items: center; /*위아래 양옆 가운데 위치*/
             justify-content: center;
         }
         .popup-btn {
             padding: 10px;
             display: inline-block;
-            background-color: #ffffff;
+            background-color: #ffffff; /*버튼 백 그라운드 색*/
         }
         .popup-view {
             position: absolute;
-            left: 50%;
-            top: 50%;
+            left: 50%; /*왼쪽으로 50%*/
+            top: 50%; /*위로 50% 그니깐 양옆위아래 가운데 위치*/
             width: 400px;
             height: 400px;
             border: 3px solid #000000;
             background-color: #8d8d8d;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); /*X,Y좌표를 양 가운데에 위치*/
             z-index: 1000;
             display: none;
         }
@@ -189,12 +189,12 @@
     </style>
 </head>
 <body>
-    <div id="wrap">
-        <div id="header">
-            <div id="logo"></div>
-            <div class="nav">
+    <div id="wrap"> <!-- 모든 거 총괄하는 애 -->
+        <div id="header"> <!-- 맨 위부분 -->
+            <div id="logo"></div> <!-- 로고 -->
+            <div class="nav"> <!-- 네비게이션 -->
                 <ul>
-                    <li><a href="#">메뉴1</a>
+                    <li><a href="#">메뉴1</a> <!-- 메뉴를 링크 형식이지만 아무링크 없는 방식으로 버튼 생성-->
                         <ul class="submenu">
                             <li><a href="#">서브메뉴1-1</a></li>
                             <li><a href="#">서브메뉴1-2</a></li>
@@ -234,53 +234,53 @@
         </div>
         <!-- //header -->
 
-        <div id="slider"></div>
+        <div id="slider"></div> <!-- 슬라이더 -->
         <!-- //slider -->
 
-        <div id="contents">
+        <div id="contents"> <!-- 콘텐츠들 -->
             <section class="content1">
-                <div class="tab-menu">
-                    <div class="tab-btn">
+                <div class="tab-menu"> <!-- 탭 메뉴 -->
+                    <div class="tab-btn"> <!-- 탭 버튼 -->
                         <ul>
-                            <li class="active"><a href="#">탭메뉴1</a></li>
+                            <li class="active"><a href="#">탭메뉴1</a></li> <!-- 탭 메뉴 활성화상태로 아무 링크 없는 방식 -->
                             <li><a href="#">탭메뉴2</a></li>
                         </ul>
                     </div>
-                    <div class="tab-cont">
+                    <div class="tab-cont"> <!-- 위 탭메뉴를 누를시 나타나야하는 내용들 -->
                         <div>탭메뉴1 내용<br>탭메뉴1 내용<br>탭메뉴1 내용</div>
                         <div>탭메뉴2 내용<br>탭메뉴2 내용<br>탭메뉴2 내용</div>
                     </div>
                 </div>
             </section>
             <section class="content2"></section>
-            <section class="content3">
-                <a href="#" class="popup-btn">팝업</a>
+            <section class="content3"> <!-- 콘텐츠3 팝업 창 -->
+                <a href="#" class="popup-btn">팝업</a> <!-- 팝업 링크 없는 상태로 버튼 형식 -->
             </section>
         </div>
         <!-- //contents -->
 
-        <div id="footer">
+        <div id="footer"> <!-- 풋터 -->
             <div id="footer1"></div>
             <div id="footer2"></div>
             <div id="footer3"></div>
         </div>
         <!-- //footer -->
 
-        <div class="popup-view">
-            <a href="#" class="popup-close">닫기</a>
+        <div class="popup-view"> <!-- 팝업 창 -->
+            <a href="#" class="popup-close">닫기</a> <!-- 팝업 창을 닫는 기능 링크 없이 버튼 형식 -->
         </div>
 
     </div>
     <!-- //wrap -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> <!-- JQUERY -->
     <script>
-        $(document).ready(function(){
+        $(document).ready(function(){ //기능 설정
             //메뉴에 마우스를 오버했을 때 서브메뉴를 슬라이드 다운해라
             $(".nav > ul > li").mouseover(function(){
-                $(this).find(".submenu").stop().slideDown(100);
+                $(this).find(".submenu").stop().slideDown(100); //0.1초 시간으로 .SUBMENU에 있는 걸 마우스에 갔다대면 창이 내려감
             });
-            $(".nav > ul > li").mouseout(function(){
+            $(".nav > ul > li").mouseout(function(){ //0.1초로 마우스에 갔다대면 창이 올라감
                 $(this).find(".submenu").stop().slideUp(100);
             });
         });
@@ -290,14 +290,14 @@
             //tab
             //첫번 째 컨텐츠만 화면에 출력
             //클릭한 버튼의 컨텐츠만 출력
-            let tabBtn = $(".tab-btn > ul > li");
+            let tabBtn = $(".tab-btn > ul > li"); //변수 지정
             let tabCont = $(".tab-cont > div");
-            tabCont.hide().eq(0).show();
+            tabCont.hide().eq(0).show(); //누르면 1번째 창이 나타남
 
             tabBtn.click(function(){
                 const index = $(this).index()
 
-                $(this).addClass("active").siblings().removeClass("active");
+                $(this).addClass("active").siblings().removeClass("active"); //누르면 2번째 창이 나타남
                 tabCont.eq(index).show().siblings().hide();
             });
 
@@ -307,10 +307,10 @@
             //닫기 버튼을 클릭했을 때
             //팝업 창이 나타납니다
             $(".popup-btn").click(function(){
-                $(".popup-view").show();
+                $(".popup-view").show(); //POPUP-BTN이라는 버튼을 누르면 .POPUP-VIEW 팝업 창이 나타남
             });
-            $(".popup-close").click(function(){
-                $(".popup-view").hide();
+            $(".popup-close").click(function(){ 
+                $(".popup-view").hide(); //.POPUP-CLOSE 버튼 누르면 .POPUP-VIEW 팝업 창이 닫아짐
             });
         });
     </script>
