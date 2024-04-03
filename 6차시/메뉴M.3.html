@@ -114,10 +114,10 @@
         .nav > ul > li > ul > li{}
 
         .nav > ul > li > ul > li > a{
-            display: inline-block;
+            display: inline-block; /* inline 속성과 block속성의 결합된 속성으로 줄바꿈없이 다른 엘리먼트하고 나란히 배티되고, width,height, margin, padding등의 상하간격 지정이 가능함*/
             padding: 10px;
             width: 100%;
-            box-sizing: border-box;
+            box-sizing: border-box; /* box크기를 보더박스 만큼만 키움*/
         }
         .nav > ul > li > ul > li > a:hover{
             background-color: #390633;
@@ -125,17 +125,17 @@
 
         /*가상요소 */
         #header {
-            position: relative;
+            position: relative; /* 원래 위치 기준으로 위,아래,왼,오른에서 얼마만큼 떨어질지 결정*/
         }
-        #header::after {
-            content: '';
+        #header::after { /* content의 속성중 하나로 문자열로 변환시켜 브라우저에 보여주게함 */
+            content: ''; /* 선택한 요소의 앞이나 뒤에 텍스트, 이미지등을 추가시킨다 ''는 없다는 뜻 */
             width: 100%;
             height: 0;
             background-color: #5a124f;
-            position: absolute;
+            position: absolute; /* 가장 가까운 조상 요소를 기준으로 위, 아래, 왼, 오른에서 얼마만큼 떨어질지 결정*/
             left: 0;
             top: 100px;
-            transition: all 400ms;
+            transition: all 400ms; /* 프로퍼티 변경에 따른 표시의 변화를 부드럽게 하기 위해 애니메이션 속도를 조정 */
         }
         #header.on::after {
             height: 200px;
@@ -222,14 +222,14 @@
 
         $(function(){
             //메뉴에 마우스를 올렸을 때
-            $(".nav > ul > li").mouseover(function(){
+            $(".nav > ul > li").mouseover(function(){ //마우스를 갖다대면 .nav > ul > li css안에 실행
                 //서브메뉴
-                $(".nav > ul > li > ul").stop().fadeIn(600);
-                $("#header").addClass("on");
+                $(".nav > ul > li > ul").stop().fadeIn(600); //.nav > ul > li > ul 을 흐리게 나타남 0.6초
+                $("#header").addClass("on"); //가상화면 킴
             });
-            $(".nav > ul > li").mouseout(function(){
-                $(".nav > ul > li > ul").stop().fadeOut(100);
-                $("#header").removeClass("on");
+            $(".nav > ul > li").mouseout(function(){ //마우스를 벗어나면
+                $(".nav > ul > li > ul").stop().fadeOut(100); //흐리게 사라짐 0.1초
+                $("#header").removeClass("on"); //가상화면 없엠
             });
         });
     </script>
