@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹디자인기능사 메뉴 M-6 레이아웃</title>
+  <link href="https://webfontworld.github.io/Rebecca/Rebecca.css" rel="stylesheet"> <!-- 외부 폰트 사이트 링크 !-->
+  <style>
+    * { /* 전체 초기화 및 기본 스타일 설정 */
+            margin: 0;  /*가운데 배치 */
+            padding: 0; /* 여백을 없에기 */
+            font-family: 'Rebecca'; /* 외부 폰트 적용 */
+    }
+    li {
+        list-style: none; /* 리스트 스타일 왼쪽 동그라미 제거 */
+    }
+    a {
+            text-decoration: none;  /* 밑줄 제거 */
+            color: #000000; /* 글씨 색상 */
+        }
+    #wrap {
+        width: 100%; /*넓이*/
+        display: flex; /*가운데 정렬*/
+        flex-wrap: wrap;
+    }
+    #aside {
+        width: 200px;
+    }
+    #aside h1 {
+        width: 100%;
+        height: 100px; /* 높이 */
+        background-color: #efefef;
+    }
+    #aside nav {
+        width: 100%;   /*네비게이션 넓이*/
+        height: 700px; /* 높이 */
+        background-color: #e3e3e3;
+    }
+    #main {
+        width: calc(100% - 200px);
+    }
+    #slider {
+        width: 100%;
+        height: 400px;
+        background-color: #d9d9d9;
+    }
+    #link {
+        width: 100%;
+        height: 150px;
+        background-color: #d1d1d1;
+    }
+    #contents {
+        width: 100%;
+        display: flex;
+    }
+    #contents .content1 {
+        width: 50%;
+        height: 250px;
+        background-color: #c7c7c7;
+    }
+    #contents .content2 {
+        width: 50%;
+        height: 250px;
+        background-color: #bcbcbc;
+    }
+    #footer {
+        width: 100%;
+        display: flex;
+    }
+    #footer .footer1 {
+        width: 20%;
+        height: 120px;
+        background-color: #b1b1b1;
+    }
+    #footer .footer2 {
+        width: 60%;
+    }
+    #footer .footer2 .footer2-1 {
+        width: 100%;
+        height: 60px;
+        background-color: #a3a3a3;
+    }
+    #footer .footer2 .footer2-2 {
+        width: 100%;
+        height: 60px;
+        background-color: #9d9d9d;
+    }
+    #footer .footer3 {
+        width: 20%;
+        height: 120px;
+        background-color: #929292;
+    }
+
+    /* nav */
+
+    .nav {
+        z-index: 1000;
+        position: relative;
+    }
+    .nav > ul {}
+    .nav > ul > li {
+        position: relative; /* 원래 위치 기준으로 위,아래,왼,오른에서 얼마만큼 떨어질지 결정*/
+    }
+    .nav > ul > li > a {
+        padding: 10px;
+        display: block;
+        text-align: center;
+        background-color: #fefefe
+    }
+    .nav > ul > li > a:hover {
+        background-color: #3a3a3a;
+    }
+    .nav > ul > li > ul {
+        position: absolute; /* 가장 가까운 조상 요소를 기준으로 위, 아래, 왼, 오른에서 얼마만큼 떨어질지 결정*/
+        right: -650px; /*위로 36픽셀로 떨어짐*/
+        top: 0; /*왼쪽으로 딱 붙임*/
+        width: 650px;
+        background-color: #646464; 
+        display: none; /*안보이게*/
+    }
+    .nav > ul > li > ul > li {
+        display: inline; /* 속성과 줄바꿈없이 다른 엘리먼트하고 나란히 배치됨*/
+    }
+    .nav > ul > li > ul > li > a {
+        padding: 10px 50px;
+        display: inline-block;   /* inline 속성과 block속성의 결합된 속성으로 줄바꿈없이 다른 엘리먼트하고 나란히 배티되고, width,height, margin, padding등의 상하간격 지정이 가능함*/
+        text-align: center;
+    }
+    .nav > ul > li > ul > li > a:hover {
+        background-color: #94949494;
+    }
+
+    /* 가상요소 */
+
+    #main {
+        position: relative; /* 원래 위치 기준으로 위,아래,왼,오른에서 얼마만큼 떨어질지 결정*/
+    }
+
+    #main::after { /* content의 속성중 하나로 문자열로 변환시켜 브라우저에 보여주게함 */
+        content: ''; /* 선택한 요소의 앞이나 뒤에 텍스트, 이미지등을 추가시킨다 ''는 없다는 뜻 */
+        width: 0; 
+        height: 190px;
+        background-color: #646464;
+        position: absolute;  /* 가장 가까운 조상 요소를 기준으로 위, 아래, 왼, 오른에서 얼마만큼 떨어질지 결정*/
+        top: 100px;
+        transition: all 400ms; /* 프로퍼티 변경에 따른 표시의 변화를 부드럽게 하기 위해 애니메이션 속도를 조정 */
+    }
+
+    #main.on::after { /* 가상 화면이 나올 때 어떻게 나올지 */
+        width:100%; /*폭이 0에서 100%로 0.4초만에 늘어난다.*/
+    }
+
+  </style>
+</head>
+<body>
+  <div id="wrap">
+      <aside id="aside">
+          <h1></h1>
+          <nav class="nav">
+            <ul>
+                <li><a href="#">메뉴1</a>
+                    <ul>
+                        <li><a href="#">서브메뉴1-1</a></li>
+                        <li><a href="#">서브메뉴1-2</a></li>
+                        <li><a href="#">서브메뉴1-3</a></li>
+                        <li><a href="#">서브메뉴1-4</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">메뉴2</a>
+                    <ul>
+                        <li><a href="#">서브메뉴2-1</a></li>
+                        <li><a href="#">서브메뉴2-2</a></li>
+                        <li><a href="#">서브메뉴2-3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">메뉴3</a>
+                    <ul>
+                        <li><a href="#">서브메뉴3-1</a></li>
+                        <li><a href="#">서브메뉴3-2</a></li>
+                        <li><a href="#">서브메뉴3-3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">메뉴4</a>
+                    <ul>
+                        <li><a href="#">서브메뉴4-1</a></li>
+                        <li><a href="#">서브메뉴4-2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">메뉴5</a>
+                    <ul>
+                        <li><a href="#">서브메뉴5-1</a></li>
+                    </ul>
+                </li>
+            </ul>
+          </nav>
+      </aside>
+      <!-- //aside -->
+
+      <main id="main">
+          <article id="slider"></article>
+          <article id="link"></article>
+          <section id="contents">
+              <div class="content1"></div>
+              <div class="content2"></div>
+          </section>
+      </main>
+      <!-- //main -->
+
+      <footer id="footer">
+          <div class="footer1"></div>
+          <div class="footer2">
+              <div class="footer2-1"></div>
+              <div class="footer2-2"></div>
+          </div>
+          <div class="footer3"></div>
+      </footer>
+      <!-- //footer -->
+  </div>
+  <!-- //wrap -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //메뉴에 마우스를 올렸을 때
+            $(".nav > ul > li").mouseover(function(){ //마우스를 갖다대면 .nav > ul > li css안에 실행
+                //서브메뉴
+                $(".nav > ul > li > ul").stop().fadeIn(600); //.nav > ul > li > ul 을 흐리게 나타남 0.6초
+                $("#main").addClass("on"); //가상화면 킴    
+            });
+            $(".nav > ul > li").mouseout(function(){ //마우스를 벗어나면
+                $(".nav > ul > li > ul").stop().fadeOut(100); //흐리게 사라짐 0.1초
+                $("#main").removeClass("on"); //가상화면 없엠
+            });
+        });
+    </script>
+
+</body>
+</html>
