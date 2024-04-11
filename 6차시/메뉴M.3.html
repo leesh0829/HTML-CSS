@@ -210,16 +210,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function(){ //기능 설정
-            //메뉴에 마우스를 오버했을 때 서브메뉴를 슬라이드 다운해라
-            $(".nav > ul > li").mouseover(function(){
-                $(this).find(".submenu").stop().slideDown(100); //0.1초 시간으로 .SUBMENU에 있는 걸 마우스에 갔다대면 창이 내려감
-            });
-            $(".nav > ul > li").mouseout(function(){ //0.1초로 마우스에 갔다대면 창이 올라감
-                $(this).find(".submenu").stop().slideUp(100);
-            });
-        });
-
         $(function(){
             //메뉴에 마우스를 올렸을 때
             $(".nav > ul > li").mouseover(function(){ //마우스를 갖다대면 .nav > ul > li css안에 실행
