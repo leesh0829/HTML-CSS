@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 A-1</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        #header { 
+            width: 100%;    
+            display:flex;
+        }
+        .logo{
+            width: 20%;
+            height: 100px;
+            background-color: darkgrey;
+        }
+        .nav{
+            width: 80%;
+            height: 100px;
+            background-color:red;
+        }
+        #slider {
+            width: 100%;
+            height: 300px;
+            background-color:azure;
+        }
+        #content {
+            width: 100%;
+            display: flex;
+        }
+        .content1 {
+            width: 33.3333%;
+            height: 200px;
+            background-color: rosybrown;
+        }
+        .content2 {
+            width: 33.3333%;
+            height: 200px;
+            background-color: green;
+        }
+        .content3 {
+            width: 33.3333%;
+            height: 200px;
+            background-color: blue;
+        }
+        #footer{
+            width: 100%;
+            display: flex;
+        }
+        .footer1{
+            width: 20%;
+            height: 100px;
+            background-color: yellow;
+        }
+        .footer2{
+            width: 60%;
+            height: 100px;
+            background-color: royalblue;
+        }
+        .footer3{
+            width: 20%;
+            height: 100px;
+            background-color: orange;
+        }
+        /* slider 영역 */
+        #slider{
+            overflow: hidden;
+        }
+        .sliderWrap {}
+        .sliderWrap .slider {
+            position: relative;
+        }
+        .sliderWrap .slider img {
+            vertical-align: top;
+        }
+        .sliderWrap .slider span {
+            position: absolute;
+            top:50%;
+            left:50%;
+            background-color: rgba(0,0,0,0.4);
+            color: white;
+            padding: 10px 10px;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header id = "header">
+            <h1 class="logo"></h1>
+            <nav class="nav"></nav>
+        </header>
+        <!-- header 부분 -->
+        <article id = "slider">
+            <div class ="sliderWrap"><!--이미지 전체-->
+                <div class = "slider s1">
+                    <img src="/8차시/picture4.jpg" alt ="이미지 설명">
+                    <span>이미지1</span>
+                </div>
+                <div class = "slider s2">
+                    <img src="/8차시/picture5.jpg" alt ="이미지 설명">
+                    <span>이미지2</span>
+                </div>
+                <div class = "slider s3">
+                    <img src="/8차시/picture6.jpg" alt ="이미지 설명">
+                    <span>이미지3</span>
+                </div>
+            </div>
+        </article>
+        <!-- slider 부분 -->
+        <main id = "content">
+            <section class="content1"></section>
+            <section class="content2"></section>
+            <section class="content3"></section>
+        </main>
+        <!-- content 부분 -->
+        <footer id = "footer">
+            <footer class="footer1"></footer>
+            <footer class="footer2"></footer>
+            <footer class="footer3"></footer>
+        </footer>
+        <!-- footer 부분 -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        let currentIndex =0;
+        $(function(){
+            $(".sliderWrap").append($(".slider").first().clone(true));//append는 나타내주는 메소드 첫번째 클론을 복사해줌
+
+            setInterval(function(){
+                currentIndex++;
+                $(".sliderWrap").animate({marginTop: -currentIndex*300 + "px"})//sliderWrap은 이미지 전체를 말함
+                if(currentIndex==3){
+                        currentIndex=0;
+                        $(".sliderWrap").animate({marginTop: 0},0)//sliderWrap은 이미지 전체를 말함
+                }
+            }, 2000);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드S-1</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        #header { 
+            width: 100%;    
+            display:flex;
+        }
+        #logo{
+            width: 20%;
+            height: 100px;
+            background-color: darkgrey;
+        }
+        #nav{
+            width: 80%;
+            height: 100px;
+            background-color:red;
+        }
+        #slider {
+            width: 100%;
+            height: 300px;
+            background-color:azure;
+        }
+        #content {
+            width: 100%;
+            display: flex;
+        }
+        #content1 {
+            width: 33.3333%;
+            height: 200px;
+            background-color: rosybrown;
+        }
+        #content2 {
+            width: 33.3333%;
+            height: 200px;
+            background-color: green;
+        }
+        #content3 {
+            width: 33.3333%;
+            height: 200px;
+            background-color: blue;
+        }
+        #footer{
+            width: 100%;
+            display: flex;
+        }
+        #footer1{
+            width: 20%;
+            height: 100px;
+            background-color: yellow;
+        }
+        #footer2{
+            width: 60%;
+            height: 100px;
+            background-color: royalblue;
+        }
+        #footer3{
+            width: 20%;
+            height: 100px;
+            background-color: orange;
+        }
+        /* silder */
+        .sliderWrap {
+            position: relative;
+        }
+        .sliderWrap > div{
+            display: none;
+        }
+        .sliderWrap > div:first-child{
+            display: block;
+        }
+        .sliderWrap .slider {
+            top: 0;
+            left: 0;
+            position: absolute; /*겹치게 설정*/
+        }
+        .sliderWrap .slider img{
+            vertical-align: top;
+        }
+        .sliderWrap .slider span{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-color: rgba(0,0,0,0.4);
+            transform: translate(-50%,-50%); /*가운데로 가게 하려고 설정*/
+            padding: 10px 30px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id = "header">
+            <div id="logo"></div>
+            <div id="nav"></div>
+        </div>
+        <!-- header 부분 -->
+        <div id = "slider">
+            <div class="sliderWrap">
+                <div class ="slider s1">
+                    <img src="/7차시/01.jpg" alt="이미지 설명">
+                    <span>이미지1</span>
+                    <!-- span태그는 인라인 구조 -->
+                </div>
+                <div class ="slider s2">
+                    <img src="/7차시/02.jpg" alt="이미지 설명">
+                    <span>이미지2</span>
+                </div>
+                <div class ="slider s3">
+                    <img src="/7차시/03.jpg" alt="이미지 설명">
+                    <span>이미지3</span>
+                </div>
+            </div>
+        </div>
+        <!-- slider 부분 -->
+        <div id = "content">
+            <div id="content1"></div>
+            <div id="content2"></div>
+            <div id="content3"></div>
+        </div>
+        <!-- content 부분 -->
+        <div id = "footer">
+            <div id="footer1"></div>
+            <div id="footer2"></div>
+            <div id="footer3"></div>
+        </div>
+        <!-- footer 부분 -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            let currentIndexA = 0;
+            let currentIndexB = 1;
+            setInterval(function(){
+                $(".slider").eq(currentIndexA).fadeOut() // 0 1 2 0 1 2
+                $(".slider").eq(currentIndexB).fadeIn()  // 1 2 0 1 2 0
+                currentIndexA++;
+                currentIndexB++;
+                if(currentIndexA==3){
+                    currentIndexA=0;
+                }
+                if(currentIndexB==3){
+                    currentIndexB=0;
+                }
+
+            },2000)//2초마다 이 함수 실행
+        })
+    </script>
+</body>
+</html>
